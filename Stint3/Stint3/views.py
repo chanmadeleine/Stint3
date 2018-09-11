@@ -85,3 +85,10 @@ def details(key):
 def page_not_found(error):
     """Renders error page."""
     return 'Poll does not exist.', 404
+
+import os 
+from flask import send_from_directory     
+
+@app.route('/favicon.ico') 
+def favicon(): 
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
